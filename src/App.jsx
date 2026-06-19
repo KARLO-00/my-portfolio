@@ -1,15 +1,36 @@
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Home from "./pages/Home";
-import TechStack from "./pages/TechStack";
+import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
 
 function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/techstack" element={<TechStack />} />
-        </Routes>
-    );
+  // const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved ? JSON.parse(saved) : true;
+  });
+
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />} />
+      <Route path="/projects" element={<Projects
+        darkMode={darkMode}
+      />} />
+      <Route path="/experience" element={<Experience
+        darkMode={darkMode}
+      />} />
+    </Routes>
+  );
 }
 
 export default App;

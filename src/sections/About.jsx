@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-export default function About() {
+export default function About({ darkMode }) {
     const skills = [
         {
             "category": 'Frontend',
@@ -39,7 +39,9 @@ export default function About() {
     return (
         <section
             id="about"
-            className="min-h-screen bg-gray-900 text-white px-6 py-20 flex flex-col lg:flex-row gap-10 border"
+            className={`min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-row gap-10
+                ${darkMode ? "bg-gray-900" : "bg-gray-50"}
+                `}
         >
             {/* Container */}
             <div className="max-w-6xl mx-auto flex flex-col lg:flex-col gap-10">
@@ -50,7 +52,7 @@ export default function About() {
                         About
                     </h2>
 
-                    <p className="text-gray-300 leading-7">
+                    <p className={`"leading-7" ${darkMode ? "text-gray-300" : "text-gray-800"}`}>
                         I'm a Fullstack Developer with
                         experience building manufacturing systems.
 
@@ -70,8 +72,10 @@ export default function About() {
                 </div>
 
                 {/* RIGHT: Tech Stack */}
-                <div className="w-full lg:w-96">
-                    <div className="bg-gray-950 border border-gray-800 rounded-xl p-6">
+                <div className="w-full lg:w-full">
+                    <div className={`border  rounded-xl p-6
+                            ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
+                        `}>
 
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-medium">
@@ -79,8 +83,8 @@ export default function About() {
                             </h2>
 
                             <Link
-                                to="/techstack"
-                                className="text-sm text-green-400 hover:text-green-300 transition"
+                                to="/experience"
+                                className="text-sm text-blue-400 hover:text-blue-300 transition"
                             >
                                 View All
                             </Link>
@@ -90,7 +94,7 @@ export default function About() {
 
                             {skills.map((item) => (
                                 <div key={item.category}>
-                                    <h3 className="text-sm text-gray-400 mb-2">
+                                    <h3 className={`"text-sm mb-2" ${darkMode ? "text-gray-400" : "text-gray-900"}`}>
                                         {item.category}
                                     </h3>
 
@@ -98,7 +102,9 @@ export default function About() {
                                         {item.techlist.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-3 py-1 text-sm rounded-lg bg-gray-800"
+                                                className={`px-3 py-1 text-sm rounded-lg 
+                                                    ${darkMode ? "bg-gray-800" : "bg-gray-200"}
+                                                `}
                                             >
                                                 {tech}
                                             </span>
@@ -112,24 +118,36 @@ export default function About() {
                 </div>
 
             </div>
-            <div className="w-full lg:w-96 space-y-6">
+            <div className="w-full lg:w-96 space-y-6 h-full">
 
                 {/* Experience */}
-                <div className="bg-gray-950 border border-gray-800 rounded-xl p-6">
+                <div className={`rounded-xl p-6
+                    ${darkMode ? "bg-gray-950 border border-gray-800" : "bg-white border border-gray-200"}
+                    `}>
 
-                    <h2 className="text-xl font-medium mb-4">
-                        Experience
-                    </h2>
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-medium">
+                            Experience
+                        </h2>
 
+                        <Link
+                            to="/experience"
+                            className="text-sm text-blue-400 hover:text-blue-300 transition"
+                        >
+                            View All
+                        </Link>
+                    </div>
                     <div className="space-y-4">
 
                         {/* Job 1 */}
-                        <div className="border-l border-green-500 pl-4">
-                            <h3 className="text-white font-medium">
+                        <div className="border-l border-blue-500 pl-4">
+                            <h3 className=" font-medium">
                                 Fullstack Developer
                             </h3>
 
-                            <p className="text-sm text-gray-400">
+                            <p className={`text-sm
+                                ${darkMode ? "text-gray-400" : "text-gray-400"}
+                                `}>
                                 Manufacturing Systems Developer
                             </p>
 

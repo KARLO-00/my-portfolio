@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
-export default function Hero() {
+export default function Hero({ darkMode }) {
     const titles = [
         "Fullstack Developer",
         "React Developer",
@@ -16,6 +16,25 @@ export default function Hero() {
 
     const [text, setText] = useState("");
     const [titleIndex, setTitleIndex] = useState(0);
+
+    const links = [
+        {
+            'href': 'https://github.com/repos',
+            'icon': <FaGithub />
+        },
+        {
+            'href': '#',
+            'icon': <FaLinkedin />
+        },
+        {
+            'href': '#',
+            'icon': <SiGmail />
+        },
+        {
+            'href': '#',
+            'icon': <FaViber />
+        }
+    ]
 
     useEffect(() => {
         const currentTitle = titles[titleIndex];
@@ -44,25 +63,27 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="min-h-screen flex items-center justify-center px-6 bg-gray-950 text-white">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-green-500/20 blur-[120px] rounded-full" />
+            className="min-h-screen flex items-center justify-center px-6">
+            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px]  blur-[120px] rounded-full
+                ${darkMode ? "bg-blue-500/20" : "bg-blue-300/40"}
+            `} />
 
             <div className="max-w-4xl text-center">
 
                 {/* Intro badge */}
-                <p className="text-sm text-green-400 mb-4">
+                <p className="text-sm text-blue-400 mb-4">
                     👋 Hello, I'm
                 </p>
 
                 {/* Name */}
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                     John Carlo Balcita
                 </h1>
 
                 {/* Role */}
                 <h2 className="text-xl md:text-2xl text-gray-400 mt-3 h-8">
                     {text}
-                    <span className="animate-pulse text-green-400">_</span>
+                    <span className="animate-pulse text-blue-400">_</span>
                 </h2>
 
                 {/* Description */}
@@ -74,39 +95,29 @@ export default function Hero() {
                 {/* CTA Buttons */}
                 <div className="mt-8 flex gap-4 justify-center flex-wrap">
                     <a
-                        href="#projects"
-                        className="px-6 py-3 bg-green-500 text-black font-medium rounded-lg hover:bg-green-400 transition"
+                        href="#"
+                        className="px-6 py-3 bg-blue-500 text-black font-medium rounded-lg hover:bg-blue-400 transition"
                     >
-                        View Projects
+                        Download Resume
                     </a>
 
                     <a
-                        href="#contact"
-                        className="px-6 py-3 border border-gray-600 rounded-lg hover:border-green-400 hover:text-green-400 transition"
+                        href="#projects"
+                        className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-400 hover:text-blue-400 transition"
                     >
-                        Contact Me
+                        View Projects
                     </a>
                 </div>
 
                 <div className="flex justify-center gap-6 mt-8 text-2xl">
-                    <a href="#">
-                        <FaGithub />
-                    </a>
-
-                    <a href="#">
-                        <FaLinkedin />
-                    </a>
-
-                    <a href="#">
-                        <SiGmail />
-                    </a>
-
-                    <a href="#">
-                        <FaViber />
-                    </a>
+                    {links.map((link, index) => (
+                        <a href={link.href} target="_blank" key={index}>
+                            {link.icon}
+                        </a>
+                    ))}
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

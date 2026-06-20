@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ProjectsPreview({ darkMode }) {
+export default function Expertise({ darkMode }) {
     const skills = [
         {
             "category": 'Frontend',
@@ -20,42 +20,31 @@ export default function ProjectsPreview({ darkMode }) {
                 "MySQL",
                 "Node.js"
             ]
-        },
-        {
-            'category': 'Developer Tools',
-            'techlist': [
-                "Git",
-                "Github",
-                "VS Code",
-                "Teams",
-                "Trello",
-                "draw.io"
-            ]
         }
     ]
 
     const projects = [
         {
-            title: "Production Monitoring System",
-            description:
-                "Internal system for tracking machine status, production output, and workflow monitoring.",
-            tech: ["PHP", "MySQL", "jQuery", "Bootstrap"],
+            title: "carlo.dev",
+            description: "Personal developer portfolio",
             github: "#",
             live: "#",
         },
         {
-            title: "Machine Setup Management",
-            description:
-                "Tool management system for setup tracking and efficiency optimization.",
-            tech: ["PHP", "JavaScript", "MySQL"],
+            title: "travelFIND",
+            description: "Travel companion matching platform",
             github: "#",
             live: "#",
         },
         {
-            title: "React Portfolio Website",
-            description:
-                "Personal portfolio built with React, Tailwind CSS, and modern UI design.",
-            tech: ["React", "Tailwind", "Vite"],
+            title: "Task Manager",
+            description: "Task tracking application",
+            github: "#",
+            live: "#",
+        },
+        {
+            title: "Inventorify",
+            description: "Inventory management system",
             github: "#",
             live: "#",
         },
@@ -63,19 +52,20 @@ export default function ProjectsPreview({ darkMode }) {
 
     return (
         <section
-            id="projects"
-            className="min-h-screen px-6 lg:px-80 py-20 flex flex-col lg:flex-row gap-5"
+            id="expertise"
+            className="min-h-screen px-6 lg:px-75 py-20 flex flex-col lg:flex-row gap-5"
         >
             <div className="lg:w-3/4">
-                {/* Tech Stack */}
+
+                {/* Projects */}
                 <div className="w-full lg:w-full">
-                    <div className={`border  rounded-xl p-6
+                    <div className={`border rounded-xl p-6
                             ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                         `}>
 
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-medium">
-                                Tech Stack
+                                Recent Projects
                             </h2>
 
                             <Link
@@ -86,25 +76,40 @@ export default function ProjectsPreview({ darkMode }) {
                             </Link>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className=" grid grid-cols-2 gap-4">
 
-                            {skills.map((item) => (
-                                <div key={item.category}>
-                                    <h3 className={`"text-sm mb-2" ${darkMode ? "text-gray-400" : "text-gray-900"}`}>
-                                        {item.category}
-                                    </h3>
+                            {projects.map((project, index) => (
+                                <div
+                                    key={index}
+                                    className={`rounded-xl p-3 hover:border-blue-400 transition border
+                                        ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white  border-gray-200"}
+                                    `}
+                                >
+                                    <h2 className="text-md font-medium mb-2">
+                                        {project.title}
+                                    </h2>
 
-                                    <div className="flex flex-wrap gap-2">
-                                        {item.techlist.map((tech) => (
-                                            <span
-                                                key={tech}
-                                                className={`px-3 py-1 text-sm rounded-lg 
-                                                    ${darkMode ? "bg-gray-800" : "bg-gray-200"}
-                                                `}
-                                            >
-                                                {tech}
-                                            </span>
-                                        ))}
+                                    <p className="text-gray-400 text-sm mb-4">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Links */}
+                                    <div className="flex gap-4 text-xs">
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            className="text-blue-400 hover:text-blue-300"
+                                        >
+                                            GitHub
+                                        </a>
+
+                                        <a
+                                            href={project.live}
+                                            target="_blank"
+                                            className="text-blue-400 hover:text-blue-300"
+                                        >
+                                            Live Demo
+                                        </a>
                                     </div>
                                 </div>
                             ))}
@@ -115,9 +120,9 @@ export default function ProjectsPreview({ darkMode }) {
 
                 <br />
 
-                {/* Projects */}
+                {/* Tech Stack */}
                 <div className="w-full lg:w-full">
-                    <div className={`border  rounded-xl p-6
+                    <div className={`border rounded-xl p-6
                             ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                         `}>
 
@@ -160,6 +165,7 @@ export default function ProjectsPreview({ darkMode }) {
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div className="lg:w-1/4 lg:w-96 space-y-6">

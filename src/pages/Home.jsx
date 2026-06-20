@@ -3,7 +3,7 @@ import { useState } from "react";
 import Hero from "../sections/Hero";
 import Navbar from "../components/Navbar";
 import About from "../sections/About";
-import ProjectsPreview from "../sections/ProjectsPreview";
+import Expertise from "../sections/Expertise";
 import Contact from "../sections/Contact";
 
 function Home({
@@ -17,7 +17,7 @@ function Home({
                 setDarkMode={setDarkMode}
             />
             <About darkMode={darkMode} />
-            <ProjectsPreview darkMode={darkMode} />
+            <Expertise darkMode={darkMode} />
             <Contact darkMode={darkMode} />
         </main>
     );

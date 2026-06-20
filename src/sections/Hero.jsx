@@ -81,7 +81,9 @@ export default function Hero({ darkMode }) {
                 </h1>
 
                 {/* Role */}
-                <h2 className="text-xl md:text-2xl text-gray-400 mt-3 h-8">
+                <h2 className={`text-xl md:text-2xl mt-3 h-8
+                    ${darkMode ? "text-gray-400" : "text-gray-900"}    
+                `}>
                     {text}
                     <span className="animate-pulse text-blue-400">_</span>
                 </h2>

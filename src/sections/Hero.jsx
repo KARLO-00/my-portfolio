@@ -104,7 +104,7 @@ export default function Hero({ darkMode }) {
                     </a>
 
                     <a
-                        href="#projects"
+                        href="#expertise"
                         className="px-6 py-3 border border-gray-600 rounded-lg hover:border-blue-400 hover:text-blue-400 transition"
                     >
                         View Projects

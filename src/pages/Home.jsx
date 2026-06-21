@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import About from "../sections/About";
 import Expertise from "../sections/Expertise";
 import Contact from "../sections/Contact";
+import Footer from "../sections/Footer";
 
 function Home({
     darkMode, setDarkMode
@@ -19,6 +20,7 @@ function Home({
             <About darkMode={darkMode} />
             <Expertise darkMode={darkMode} />
             <Contact darkMode={darkMode} />
+            <Footer darkMode={darkMode} />
         </main>
     );
 }

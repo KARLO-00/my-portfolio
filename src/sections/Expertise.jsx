@@ -69,7 +69,7 @@ export default function Expertise({ darkMode }) {
                             </h2>
 
                             <Link
-                                to="/experience"
+                                to="/projects"
                                 className="text-sm text-blue-400 hover:text-blue-300 transition"
                             >
                                 View All
@@ -132,7 +132,7 @@ export default function Expertise({ darkMode }) {
                             </h2>
 
                             <Link
-                                to="/experience"
+                                to="/techstack"
                                 className="text-sm text-blue-400 hover:text-blue-300 transition"
                             >
                                 View All

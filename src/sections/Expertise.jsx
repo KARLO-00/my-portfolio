@@ -27,7 +27,7 @@ export default function Expertise({ darkMode }) {
         {
             title: "carlo.dev",
             description: "Personal developer portfolio",
-            github: "#",
+            github: "https://github.com/KARLO-00/my-portfolio",
             live: "#",
         },
         {
@@ -39,21 +39,39 @@ export default function Expertise({ darkMode }) {
         {
             title: "Task Manager",
             description: "Task tracking application",
-            github: "#",
+            github: "https://github.com/KARLO-00/task-manager",
             live: "#",
         },
         {
             title: "Inventorify",
             description: "Inventory management system",
-            github: "#",
+            github: "https://github.com/KARLO-00/inventorify",
             live: "#",
         },
     ];
 
+    const experience = [
+        {
+            'title': 'Application Developer',
+            'where': 'Team Pacific Corporation',
+            'when': 'Present'
+        },
+        {
+            'title': 'BS in Computer Science',
+            'where': 'Taguig City University',
+            'when': '2025'
+        },
+        {
+            'title': 'Hello World! 👋',
+            'where': 'wrote my first line of code',
+            'when': '2021'
+        },
+    ]
+
     return (
         <section
             id="expertise"
-            className="min-h-screen px-6 lg:px-75 py-20 flex flex-col lg:flex-row gap-5"
+            className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-row gap-5"
         >
             <div className="lg:w-3/4">
 
@@ -103,13 +121,13 @@ export default function Expertise({ darkMode }) {
                                             GitHub
                                         </a>
 
-                                        <a
+                                        {/* <a
                                             href={project.live}
                                             target="_blank"
                                             className="text-blue-400 hover:text-blue-300"
                                         >
                                             Live Demo
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             ))}
@@ -184,19 +202,30 @@ export default function Expertise({ darkMode }) {
                     <div className="space-y-4">
 
                         {/* Experience */}
-                        <div className="border-l border-gray-700 pl-4">
-                            <h3 className="text-white font-medium">
-                                Hello, World! 👋
-                            </h3>
+                        {experience.map((exp, index) => (
+                            <div
+                                key={index}
+                                className={`"border-l pl-4
+                                    ${darkMode ? "border-gray-700" : "border-gray-300"}
+                                `}
+                            >
+                                <h3 className="font-medium">
+                                    {exp.title}
+                                </h3>
 
-                            <p className="text-sm text-gray-400">
-                                Wrote my first line of code
-                            </p>
+                                <div className="flex justify-between mt-1">
+                                    <p className={`text-sm
+                                        ${darkMode ? "text-gray-400" : "text-gray-600"}
+                                    `}>
+                                        {exp.where}
+                                    </p>
 
-                            <p className="text-xs text-gray-500 mt-1">
-                                2021 - 2023
-                            </p>
-                        </div>
+                                    <span className="text-xs text-gray-500">
+                                        {exp.when}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
 
                     </div>
                 </div>

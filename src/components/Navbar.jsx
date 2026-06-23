@@ -58,14 +58,28 @@ export default function Navbar({
 
                 </nav>
 
-
                 {/* Mobile Button */}
-                <button
-                    className={`md:hidden ${darkMode ? "text-gray-300" : "text-gray-700"}`}
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    ☰
-                </button>
+                <div className="flex items-center gap-3 md:hidden">
+
+                    <button
+                        onClick={() => setDarkMode(!darkMode)}
+                        className="p-2 rounded-lg transition"
+                    >
+                        {darkMode ? (
+                            <LuSun size={20} />
+                        ) : (
+                            <LuMoonStar size={20} />
+                        )}
+                    </button>
+
+                    <button
+                        className={darkMode ? "text-gray-300" : "text-gray-700"}
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        ☰
+                    </button>
+
+                </div>
             </div>
 
             {/* Mobile Menu */}

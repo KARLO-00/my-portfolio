@@ -2,15 +2,32 @@ import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
 export default function Projects({ darkMode }) {
-    
-
     return (
         <section className={`min-h-screen px-6 py-20
             ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}
         `}>
             <div className="max-w-6xl mx-auto">
 
-                <Link to="/">Back to home</Link>
+                <Link
+                    to="/"
+                    className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-blue-400 transition"
+                >
+                    <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                        />
+                    </svg>
+
+                    <span>Back to Home</span>
+                </Link>
 
                 {/* Header */}
                 <h1 className="text-3xl md:text-4xl font-bold mb-10">

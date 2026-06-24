@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import {
+    FaGithub
+} from "react-icons/fa";
 
 export default function Expertise({ darkMode }) {
     const skills = [
@@ -140,6 +143,49 @@ export default function Expertise({ darkMode }) {
 
                 {/* Tech Stack */}
                 <div className="w-full lg:w-full">
+                    <div className={`border rounded-xl p-6
+                            ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
+                        `}>
+
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-xl font-medium">
+                                Tech Stack
+                            </h2>
+
+                            <Link
+                                to="/techstack"
+                                className="text-sm text-blue-400 hover:text-blue-300 transition"
+                            >
+                                View All
+                            </Link>
+                        </div>
+
+                        <div className="space-y-4">
+
+                            {skills.map((item) => (
+                                <div key={item.category}>
+                                    <h3 className={`"text-sm mb-2" ${darkMode ? "text-gray-400" : "text-gray-900"}`}>
+                                        {item.category}
+                                    </h3>
+
+                                    <div className="flex flex-wrap gap-2">
+                                        {item.techlist.map((tech) => (
+                                            <span
+                                                key={tech}
+                                                className={`px-3 py-1 text-sm rounded-lg 
+                                                    ${darkMode ? "bg-gray-800" : "bg-gray-200"}
+                                                `}
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+
+                        </div>
+                    </div>
+
                     <div className={`border rounded-xl p-6
                             ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                         `}>

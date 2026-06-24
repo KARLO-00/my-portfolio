@@ -84,7 +84,7 @@ export default function About({ darkMode }) {
                 </div>
 
                 <div className="rounded-xl border border-gray-800 p-4">
-                    <h3 className="text-2xl font-bold text-blue-400">53+</h3>
+                    <h3 className="text-2xl font-bold text-blue-400">100+</h3>
                     <p className="text-sm text-gray-400">Commits Made</p>
                 </div>
 

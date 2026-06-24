@@ -71,6 +71,25 @@ export default function Expertise({ darkMode }) {
         },
     ]
 
+    const expertise = [
+        {
+            title: "Frontend Development",
+            subtitle: "React, JavaScript, Tailwind CSS",
+        },
+        {
+            title: "Backend Development",
+            subtitle: "Laravel, PHP, PostgreSQL",
+        },
+        {
+            title: "Database Management",
+            subtitle: "PostgreSQL, MySQL",
+        },
+        {
+            title: "AI & Automation",
+            subtitle: "OpenAI API, Prompt Engineering",
+        },
+    ];
+
     return (
         <section
             id="expertise"
@@ -185,7 +204,9 @@ export default function Expertise({ darkMode }) {
 
                         </div>
                     </div>
+                </div>
 
+                <div className="w-full lg:w-full">
                     <div className={`border rounded-xl p-6
                             ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                         `}>

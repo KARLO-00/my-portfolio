@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import carlodev1 from "../assets/images/carlo.dev_1.png";
 import carlodev2 from "../assets/images/carlo.dev_2.png";
 
@@ -31,45 +33,61 @@ export default function ({ darkMode }) {
     return (
         <section
             id="projects"
-            className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-row gap-5"
+            className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-col gap-5"
         >
-            {projects.map((project, index) => (
-                <div 
-                    key={index}
-                    className={`border rounded-xl w-1/2 overflow-hidden h-85
+
+            <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-medium">
+                    Certificates
+                </h2>
+
+                <Link
+                    to="/"
+                    className="text-sm text-blue-400 hover:text-blue-300 transition"
+                >
+                    View All
+                </Link>
+            </div>
+
+            <div className="flex flex-col lg:flex-row gap-5">
+                {projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className={`border rounded-xl w-1/2 overflow-hidden h-85 w-full
                     ${darkMode ? "border-gray-800" : "border-gray-200"}    
                 `}>
-                    <img
-                        src={project.display}
-                        alt="carlo.dev screenshot"
-                        className="w-full h-48 object-cover"
-                    />
+                        <img
+                            src={project.display}
+                            alt="carlo.dev screenshot"
+                            className="w-full h-48 object-cover"
+                        />
 
-                    <div className={`p-4 border-t
+                        <div className={`p-4 border-t
                         ${darkMode ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-200"}
                     `}>
-                        <h2 className="text-sm font-semibold mb-1">{project.title}</h2>
+                            <h2 className="text-sm font-semibold mb-1">{project.title}</h2>
 
-                        <p className={`text-xs mb-3
+                            <p className={`text-xs mb-3
                             ${darkMode ? "text-gray-400" : "text-gray-600"}
                         `}>
-                            {project.description}
-                        </p>
+                                {project.description}
+                            </p>
 
-                        <div className="flex flex-wrap gap-2 mb-3">
-                            <span className={`px-2 py-1 text-xs rounded-lg 
+                            <div className="flex flex-wrap gap-2 mb-3">
+                                <span className={`px-2 py-1 text-xs rounded-lg 
                                 ${darkMode ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-700"}
                             `}>
-                                {project.tech}
-                            </span>
-                        </div>
+                                    {project.tech}
+                                </span>
+                            </div>
 
-                        <a href={project.github} className="text-xs text-blue-400 hover:text-blue-300">
-                            GitHub →
-                        </a>
+                            <a href={project.github} className="text-xs text-blue-400 hover:text-blue-300">
+                                GitHub →
+                            </a>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
 
         </section >
     );

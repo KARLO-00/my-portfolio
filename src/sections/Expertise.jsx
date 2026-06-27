@@ -129,11 +129,15 @@ export default function Expertise({ darkMode }) {
                             {certifications.map((cert, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center justify-between px-5 py-4 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
+                                    className={`flex items-center justify-between px-5 py-4 transition-colors cursor-pointer
+                                        ${darkMode ? "bg-gray-900 hover:bg-gray-800" : "bg-gray-50 hover:bg-gray-100"}    
+                                    `}
                                 >
                                     <div>
-                                        <p className="text-sm font-semibold text-white">{cert.name}</p>
-                                        <p className="text-xs text-slate-400 mt-0.5">{cert.issuer}</p>
+                                        <p className="text-sm font-semibold">{cert.name}</p>
+                                        <p className={`text-xs mt-0.5
+                                            ${darkMode ? "text-slate-400" : "text-slate-600"}
+                                        `}>{cert.issuer}</p>
                                     </div>
                                     <span className="text-slate-500 text-lg">›</span>
                                 </div>

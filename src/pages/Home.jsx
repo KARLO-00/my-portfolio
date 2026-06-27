@@ -4,6 +4,7 @@ import Hero from "../sections/Hero";
 import Navbar from "../components/Navbar";
 import About from "../sections/About";
 import Expertise from "../sections/Expertise";
+import Projects from "../sections/Projects";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
@@ -19,6 +20,7 @@ function Home({
             />
             <About darkMode={darkMode} />
             <Expertise darkMode={darkMode} />
+            <Projects darkMode={darkMode} />
             <Contact darkMode={darkMode} />
             <Footer darkMode={darkMode} />
         </main>

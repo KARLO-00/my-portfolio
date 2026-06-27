@@ -3,6 +3,7 @@ import {
     FaGithub
 } from "react-icons/fa";
 
+
 export default function Expertise({ darkMode }) {
     const skills = [
         {
@@ -24,33 +25,6 @@ export default function Expertise({ darkMode }) {
                 "Node.js"
             ]
         }
-    ]
-
-    const projects = [
-        {
-            title: "carlo.dev",
-            description: "Personal developer portfolio",
-            github: "https://github.com/KARLO-00/my-portfolio",
-            live: "#",
-        },
-        {
-            title: "travelFIND",
-            description: "Travel companion matching platform",
-            github: "#",
-            live: "#",
-        },
-        {
-            title: "Task Manager",
-            description: "Task tracking application",
-            github: "https://github.com/KARLO-00/task-manager",
-            live: "#",
-        },
-        {
-            title: "Inventorify",
-            description: "Inventory management system",
-            github: "https://github.com/KARLO-00/inventorify",
-            live: "#",
-        },
     ];
 
     const experience = [
@@ -71,23 +45,10 @@ export default function Expertise({ darkMode }) {
         },
     ]
 
-    const expertise = [
-        {
-            title: "Frontend Development",
-            subtitle: "React, JavaScript, Tailwind CSS",
-        },
-        {
-            title: "Backend Development",
-            subtitle: "Laravel, PHP, PostgreSQL",
-        },
-        {
-            title: "Database Management",
-            subtitle: "PostgreSQL, MySQL",
-        },
-        {
-            title: "AI & Automation",
-            subtitle: "OpenAI API, Prompt Engineering",
-        },
+    const certifications = [
+        { name: "Huawei Developer Expert", issuer: "Huawei" },
+        { name: "Generative AI Leader", issuer: "Google" },
+        { name: "Software Engineering", issuer: "TestDome" },
     ];
 
     return (
@@ -96,69 +57,6 @@ export default function Expertise({ darkMode }) {
             className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-row gap-5"
         >
             <div className="lg:w-3/4">
-
-                {/* Projects */}
-                <div className="w-full lg:w-full">
-                    <div className={`border rounded-xl p-6
-                            ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
-                        `}>
-
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-medium">
-                                Recent Projects
-                            </h2>
-
-                            <Link
-                                to="/projects"
-                                className="text-sm text-blue-400 hover:text-blue-300 transition"
-                            >
-                                View All
-                            </Link>
-                        </div>
-
-                        <div className=" grid grid-cols-2 gap-4">
-
-                            {projects.map((project, index) => (
-                                <div
-                                    key={index}
-                                    className={`rounded-xl p-3 hover:border-blue-400 transition border
-                                        ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white  border-gray-200"}
-                                    `}
-                                >
-                                    <h2 className="text-md font-medium mb-2">
-                                        {project.title}
-                                    </h2>
-
-                                    <p className="text-gray-400 text-sm mb-4">
-                                        {project.description}
-                                    </p>
-
-                                    {/* Links */}
-                                    <div className="flex gap-4 text-xs">
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            className="text-blue-400 hover:text-blue-300"
-                                        >
-                                            GitHub
-                                        </a>
-
-                                        {/* <a
-                                            href={project.live}
-                                            target="_blank"
-                                            className="text-blue-400 hover:text-blue-300"
-                                        >
-                                            Live Demo
-                                        </a> */}
-                                    </div>
-                                </div>
-                            ))}
-
-                        </div>
-                    </div>
-                </div>
-
-                <br />
 
                 {/* Tech Stack */}
                 <div className="w-full lg:w-full">
@@ -206,6 +104,9 @@ export default function Expertise({ darkMode }) {
                     </div>
                 </div>
 
+                <br />
+
+                {/* Certificates */}
                 <div className="w-full lg:w-full">
                     <div className={`border rounded-xl p-6
                             ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
@@ -213,40 +114,30 @@ export default function Expertise({ darkMode }) {
 
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-medium">
-                                Tech Stack
+                                Certificates
                             </h2>
 
                             <Link
-                                to="/techstack"
+                                to="/"
                                 className="text-sm text-blue-400 hover:text-blue-300 transition"
                             >
                                 View All
                             </Link>
                         </div>
 
-                        <div className="space-y-4">
-
-                            {skills.map((item) => (
-                                <div key={item.category}>
-                                    <h3 className={`"text-sm mb-2" ${darkMode ? "text-gray-400" : "text-gray-900"}`}>
-                                        {item.category}
-                                    </h3>
-
-                                    <div className="flex flex-wrap gap-2">
-                                        {item.techlist.map((tech) => (
-                                            <span
-                                                key={tech}
-                                                className={`px-3 py-1 text-sm rounded-lg 
-                                                    ${darkMode ? "bg-gray-800" : "bg-gray-200"}
-                                                `}
-                                            >
-                                                {tech}
-                                            </span>
-                                        ))}
+                        <div className="divide-y divide-white/10 border border-white/10 rounded-xl overflow-hidden">
+                            {certifications.map((cert, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-between px-5 py-4 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
+                                >
+                                    <div>
+                                        <p className="text-sm font-semibold text-white">{cert.name}</p>
+                                        <p className="text-xs text-slate-400 mt-0.5">{cert.issuer}</p>
                                     </div>
+                                    <span className="text-slate-500 text-lg">›</span>
                                 </div>
                             ))}
-
                         </div>
                     </div>
                 </div>

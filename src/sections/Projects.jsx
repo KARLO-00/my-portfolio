@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Lightbox from "../components/Lightbox";
 
 import carlodev1 from "../assets/images/carlo.dev_1.png";
 import carlodev2 from "../assets/images/carlo.dev_2.png";
 
 
 export default function ({ darkMode }) {
+    const [lightbox, setLightbox] = useState(null);
+
     const projects = [
         {
             title: "carlo.dev",
@@ -16,6 +20,7 @@ export default function ({ darkMode }) {
             github: "https://github.com/KARLO-00/my-portfolio",
             live: "#",
             display: darkMode ? carlodev1 : carlodev2,
+            images: [carlodev1, carlodev2],
         },
         {
             title: "Task Manager",
@@ -27,18 +32,19 @@ export default function ({ darkMode }) {
             github: "https://github.com/KARLO-00/task-manager",
             live: "#",
             display: darkMode ? carlodev1 : carlodev2,
+            images: [carlodev1, carlodev2],
         },
     ];
 
     return (
         <section
             id="projects"
-            className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-col gap-5"
+            className="min-h-auto px-6 lg:px-100 py-20 flex flex-col lg:flex-col gap-5"
         >
 
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-medium">
-                    Certificates
+                    Projects
                 </h2>
 
                 <Link
@@ -59,7 +65,8 @@ export default function ({ darkMode }) {
                         <img
                             src={project.display}
                             alt="carlo.dev screenshot"
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover cursor-pointer"
+                            onClick={() => setLightbox({ images: project.images, title: project.title })}
                         />
 
                         <div className={`p-4 border-t
@@ -89,6 +96,15 @@ export default function ({ darkMode }) {
                 ))}
             </div>
 
+            {/* lightbox renders on top when open */}
+            {lightbox && (
+                <Lightbox
+                    images={lightbox.images}
+                    title={lightbox.title}
+                    onClose={() => setLightbox(null)}
+                    darkMode={darkMode}
+                />
+            )}
         </section >
     );
 }

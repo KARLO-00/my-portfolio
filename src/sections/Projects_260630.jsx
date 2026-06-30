@@ -1,0 +1,114 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Lightbox from "../components/Lightbox";
+
+import carlodev1 from "../assets/images/carlo.dev_1.png";
+import carlodev2 from "../assets/images/carlo.dev_2.png";
+
+
+export default function ({ darkMode }) {
+    const [lightbox, setLightbox] = useState(null);
+
+    const projects = [
+        {
+            title: "carlo.dev",
+            description: "Personal developer portfolio built with React and Tailwind CSS.",
+            tech: [
+                "Reach",
+                "Tailwindcss",
+            ],
+            github: "https://github.com/KARLO-00/my-portfolio",
+            live: "#",
+            images: [carlodev1, carlodev2],
+        },
+        {
+            title: "Task Manager",
+            description: "Task tracking application with status management and filtering.",
+            tech: [
+                "Laravel",
+                "Tailwindcsss",
+            ],
+            github: "https://github.com/KARLO-00/task-manager",
+            live: "#",
+            images: [carlodev1, carlodev2],
+        },
+    ];
+
+    return (
+        <section
+            id="projects"
+            className={`min-h-auto px-6 lg:px-160 py-25 flex flex-col lg:flex-col gap-5
+                ${darkMode ? "bg-gray-900" : "bg-gray-50"}
+            `}
+        >
+
+            <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-medium">
+                    Projects
+                </h2>
+
+                <Link
+                    to="/projects"
+                    className="text-sm text-blue-400 hover:text-blue-300 transition"
+                >
+                    View All
+                </Link>
+            </div>
+
+            <div className="flex flex-col lg:flex-row gap-5">
+                {projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className={`border rounded-xl w-1/2 overflow-hidden h-85 w-full
+                    ${darkMode ? "border-gray-800" : "border-gray-200"}    
+                `}>
+                        <img
+                            src={project.images[0]}
+                            alt="carlo.dev screenshot"
+                            className="w-full h-48 object-cover cursor-pointer"
+                            onClick={() => setLightbox({ images: project.images, title: project.title })}
+                        />
+
+                        <div className={`p-4 border-t
+                        ${darkMode ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-200"}
+                    `}>
+                            <h2 className="text-sm font-semibold mb-1">{project.title}</h2>
+
+                            <p className={`text-xs mb-3
+                            ${darkMode ? "text-gray-400" : "text-gray-600"}
+                        `}>
+                                {project.description}
+                            </p>
+
+                            <div className="flex flex-wrap gap-2 mb-3">
+                                {project.tech.map((tech, i) => (
+                                    <span 
+                                        key={i}
+                                        className={`px-2 py-1 text-xs rounded-lg 
+                                        ${darkMode ? "bg-gray-800 text-gray-300" : "bg-gray-200 text-gray-700"}
+                                    `}>
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <a href={project.github} className="text-xs text-blue-400 hover:text-blue-300">
+                                GitHub →
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* lightbox renders on top when open */}
+            {lightbox && (
+                <Lightbox
+                    images={lightbox.images}
+                    title={lightbox.title}
+                    onClose={() => setLightbox(null)}
+                    darkMode={darkMode}
+                />
+            )}
+        </section >
+    );
+}

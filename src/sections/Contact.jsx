@@ -27,7 +27,7 @@ export default function Contact({ darkMode }) {
         <section
             id="contact"
             className={`py-24 px-6
-                ${darkMode ? "bg-gray-900" : "bg-gray-50"}
+    
             `}
         >
             <div className="max-w-5xl mx-auto text-center">

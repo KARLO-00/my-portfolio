@@ -17,11 +17,11 @@ export default function Navbar({
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b 
+            className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b px-6
                 ${darkMode ? "border-gray-800" : "border-gray-200"}
             `}
         >
-            <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto py-4 flex items-center justify-between">
 
                 {/* Logo */}
                 <a href="#home" className={`font-bold text-lg 

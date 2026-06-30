@@ -39,9 +39,9 @@ export default function About({ darkMode }) {
     return (
         <section
             id="about"
-            className={`min-h-auto px-6 lg:px-100 py-20
+            className={`min-h-auto px-6 py-25 lg:px-160
                 ${darkMode ? "bg-gray-900" : "bg-gray-50"}
-                `}
+            `}
         >
             {/* Container */}
 

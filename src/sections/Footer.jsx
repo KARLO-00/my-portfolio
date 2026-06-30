@@ -1,13 +1,8 @@
 export default function Footer({ darkMode }) {
     return (
-        <footer
-            className={`border-t py-6 px-6
-                ${darkMode
-                    ? "bg-gray-950 border-gray-800 text-gray-400"
-                    : "bg-white border-gray-200 text-gray-600"
-                }
-            `}
-        >
+        <footer className={`border-t  py-5
+            ${darkMode ? "border-slate-800 bg-slate-950" : "border-gray-200 bg-gray-50"}
+        `}>
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
 
                 <div className="font-semibold">

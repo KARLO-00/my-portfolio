@@ -54,7 +54,7 @@ export default function Expertise({ darkMode }) {
     return (
         <section
             id="expertise"
-            className="min-h-screen px-6 lg:px-100 py-20 flex flex-col lg:flex-row gap-5"
+            className={`min-h-auto px-6 lg:px-160 py-25 flex flex-col lg:flex-row gap-5`}
         >
             <div className="lg:w-3/4">
 

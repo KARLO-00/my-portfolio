@@ -100,7 +100,7 @@ export default function Hero({ darkMode }) {
                         href="#"
                         className="px-6 py-3 bg-blue-500 text-black font-medium rounded-lg hover:bg-blue-400 transition"
                     >
-                        Download Resume
+                        Download CV
                     </a>
 
                     <a

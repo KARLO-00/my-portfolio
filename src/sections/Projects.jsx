@@ -59,85 +59,89 @@ export default function Projects({ darkMode }) {
     };
 
     return (
-        <section id="projects" className={`px-6 py-16 lg:px-160 py-25
+        <section id="projects" className={`py-25
             ${darkMode ? "bg-gray-900" : "bg-gray-50"}
         `}>
-            <div className="flex justify-between items-center mb-12">
-                <h2 className="text-xl font-medium">
-                    Projects
-                </h2>
-                <a href="#" className="text-xs tracking-widest text-blue-400 hover:text-blue-300">
-                    ALL PROJECTS →
-                </a>
-            </div>
 
-            {/* stacked cards */}
-            <div className="relative h-[300px] flex items-center justify-center mb-8">
-                {projects.map((project, i) => {
-                    const pos = POSITIONS[order[i]];
-                    const isFront = pos === "pos-front";
+            <div className="max-w-5xl lg:max-w-7xl mx-auto px-6 md:px-12">
+                <div className="flex justify-between items-center mb-12">
+                    <h2 className="text-xl font-medium">
+                        Projects
+                    </h2>
+                    <a href="#" className="text-xs tracking-widest text-blue-400 hover:text-blue-300">
+                        ALL PROJECTS →
+                    </a>
+                </div>
 
-                    return (
-                        <div
-                            key={project.id}
-                            onClick={() => handleCardClick(i)}
-                            className={`absolute w-64 border rounded-xl p-4 transition-all duration-500 ease-in-out
-                                ${darkMode ? "bg-gray-900 border-gray-800" : "bg-white border-gray-200"}
+                {/* stacked cards */}
+                <div className="relative h-[300px] flex items-center justify-center mb-8">
+                    {projects.map((project, i) => {
+                        const pos = POSITIONS[order[i]];
+                        const isFront = pos === "pos-front";
+
+                        return (
+                            <div
+                                key={project.id}
+                                onClick={() => handleCardClick(i)}
+                                className={`absolute w-64 border rounded-xl p-4 transition-all duration-500 ease-in-out
+                                ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                                 ${cardStyles[pos]}`}
                             >
-                
-                            {/* image */}
-                            <div
-                                onClick={(e) => {
-                                    if (!isFront) return;
-                                    e.stopPropagation();
-                                    setLightbox({ images: project.images, title: project.title });
-                                }}
-                                className={`relative w-full h-28 rounded-lg overflow-hidden border mb-3 flex items-center justify-center
+
+                                {/* image */}
+                                <div
+                                    onClick={(e) => {
+                                        if (!isFront) return;
+                                        e.stopPropagation();
+                                        setLightbox({ images: project.images, title: project.title });
+                                    }}
+                                    className={`relative w-full h-28 rounded-lg overflow-hidden border mb-3 flex items-center justify-center
                                     ${darkMode ? "bg-gray-950 border-gray-800" : "bg-gray-100 border-gray-200"}
                                     ${isFront ? "cursor-pointer" : "cursor-default"}`}
                                 >
-                                <img
-                                    src={project.images[0]}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover"
-                                />
-                                {/* hover hint on front card only */}
-                                {isFront && (
-                                    <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                                        <span className="text-[11px] text-blue-400 border border-blue-500 px-3 py-1 rounded-md bg-black/50">
-                                            View photos
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
+                                    <img
+                                        src={project.images[0]}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    {/* hover hint on front card only */}
+                                    {isFront && (
+                                        <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                            <span className="text-[11px] text-blue-400 border border-blue-500 px-3 py-1 rounded-md bg-black/50">
+                                                View photos
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
 
-                            <p className={`text-sm font-medium mb-1 ${darkMode ? "text-white" : "text-gray-900"}`}>
-                                {project.title}
-                            </p>
-                            <p className={`text-xs mb-3 leading-relaxed ${darkMode ? "text-gray-500" : "text-gray-400"}`}>
-                                {project.description}
-                            </p>
-                            <div className="flex flex-wrap gap-1 mb-3">
-                                {project.tech.map((t) => (
-                                    <span key={t} className={`text-[10px] px-2 py-1 rounded-full border
+                                <p className={`text-sm font-medium mb-1 ${darkMode ? "text-white" : "text-gray-900"}`}>
+                                    {project.title}
+                                </p>
+                                <p className={`text-xs mb-3 leading-relaxed ${darkMode ? "text-gray-500" : "text-gray-400"}`}>
+                                    {project.description}
+                                </p>
+                                <div className="flex flex-wrap gap-1 mb-3">
+                                    {project.tech.map((t) => (
+                                        <span key={t} className={`text-[10px] px-2 py-1 rounded-full border
                                         ${darkMode ? "bg-gray-800 border-gray-700 text-gray-400" : "bg-gray-100 border-gray-200 text-gray-500"}`}>
-                                        {t}
-                                    </span>
-                                ))}
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="text-xs text-blue-400 hover:text-blue-300"
+                                >
+                                    GitHub →
+                                </a>
                             </div>
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="text-xs text-blue-400 hover:text-blue-300"
-                            >
-                                GitHub →
-                            </a>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
+
             </div>
 
             {lightbox && (
@@ -148,6 +152,7 @@ export default function Projects({ darkMode }) {
                     darkMode={darkMode}
                 />
             )}
+
         </section>
     );
 }

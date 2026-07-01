@@ -17,11 +17,11 @@ export default function Navbar({
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b px-6
+            className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b
                 ${darkMode ? "border-gray-800" : "border-gray-200"}
             `}
         >
-            <div className="max-w-7xl mx-auto py-4 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
 
                 {/* Logo */}
                 <a href="#home" className={`font-bold text-lg 
@@ -38,7 +38,7 @@ export default function Navbar({
                         <a
                             key={link.id}
                             href={`#${link.id}`}
-                            className="hover:text-blue-400 transition"
+                            className="hover:text-blue-400 transition mt-2"
                         >
                             {link.label}
                         </a>

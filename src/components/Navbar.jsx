@@ -4,6 +4,7 @@ import { LuMoonStar, LuSun } from "react-icons/lu";
 export default function Navbar({
     darkMode,
     setDarkMode,
+    toggle
 }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,6 +17,8 @@ export default function Navbar({
     ];
 
     return (
+
+
         <header
             className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b
                 ${darkMode ? "border-gray-800" : "border-gray-200"}
@@ -45,7 +48,8 @@ export default function Navbar({
                     ))}
 
                     <button
-                        onClick={() => setDarkMode(!darkMode)}
+                        // onClick={() => setDarkMode(!darkMode)}
+                        onClick={toggle}
                         className={`p-2 rounded-lg  transition
                             ${darkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"}
                         `}
@@ -63,7 +67,8 @@ export default function Navbar({
                 <div className="flex items-center gap-3 md:hidden">
 
                     <button
-                        onClick={() => setDarkMode(!darkMode)}
+                        // onClick={() => setDarkMode(!darkMode)}
+                        onClick={toggle}
                         className="p-2 rounded-lg transition"
                     >
                         {darkMode ? (

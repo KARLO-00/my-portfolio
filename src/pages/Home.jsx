@@ -8,22 +8,33 @@ import Projects from "../sections/Projects";
 import Contact from "../sections/Contact";
 import Footer from "../sections/Footer";
 
+import useThemeToggle from "../hooks/useThemeToggle";
+import ThemeRipple from "../components/ThemeRipple";
+
 function Home({
     darkMode, setDarkMode
 }) {
+    const { ripple, toggle } = useThemeToggle(darkMode, setDarkMode);
+
     return (
-        <main className={darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-900"}>
-            <Hero darkMode={darkMode} />
-            <Navbar
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-            />
-            <About darkMode={darkMode} />
-            <Expertise darkMode={darkMode} />
-            <Projects darkMode={darkMode} />
-            <Contact darkMode={darkMode} />
-            <Footer darkMode={darkMode} />
-        </main>
+        <>
+            <ThemeRipple ripple={ripple} darkMode={darkMode} />
+
+            <main className={darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-900"}>
+                <Hero darkMode={darkMode} />
+                <Navbar
+                    darkMode={darkMode}
+                    setDarkMode={setDarkMode}
+                    toggle={toggle}
+                />
+                <About darkMode={darkMode} />
+                <Expertise darkMode={darkMode} />
+                <Projects darkMode={darkMode} />
+                <Contact darkMode={darkMode} />
+                <Footer darkMode={darkMode} />
+            </main>
+
+        </>
     );
 }
 

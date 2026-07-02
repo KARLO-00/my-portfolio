@@ -59,7 +59,7 @@ export default function Projects({ darkMode }) {
     };
 
     return (
-        <section id="projects" className={`py-25
+        <section id="projects" className={`py-25 min-h-auto
             ${darkMode ? "bg-gray-900" : "bg-gray-50"}
         `}>
 
@@ -83,7 +83,7 @@ export default function Projects({ darkMode }) {
                             <div
                                 key={project.id}
                                 onClick={() => handleCardClick(i)}
-                                className={`absolute w-64 border rounded-xl p-4 transition-all duration-500 ease-in-out
+                                className={`absolute w-84 border rounded-xl p-4 transition-all duration-500 ease-in-out
                                 ${darkMode ? "bg-gray-950 border-gray-800" : "bg-white border-gray-200"}
                                 ${cardStyles[pos]}`}
                             >
@@ -95,7 +95,7 @@ export default function Projects({ darkMode }) {
                                         e.stopPropagation();
                                         setLightbox({ images: project.images, title: project.title });
                                     }}
-                                    className={`relative w-full h-28 rounded-lg overflow-hidden border mb-3 flex items-center justify-center
+                                    className={`relative w-full h-58 rounded-lg overflow-hidden border mb-3 flex items-center justify-center
                                     ${darkMode ? "bg-gray-950 border-gray-800" : "bg-gray-100 border-gray-200"}
                                     ${isFront ? "cursor-pointer" : "cursor-default"}`}
                                 >
